@@ -1,5 +1,5 @@
 # Day one of 100 Day Challange Math related problems
-** GCD or HCF **
+### GCD or HCF Brute approach
 ```java 
 
 public class Main {
@@ -13,4 +13,23 @@ public class Main {
     }
     System.out.print("The GCD of the two number is "+ans);
   }
+}```
+
+### GCD or HCF Optimal approach
+```java
+
+
+public class Main {
+  static int gcd(int a, int b) {
+    if (b == 0) {
+      return a;
+    }
+    return gcd(b, a % b);
+  }
+  public static void main(String args[]) {
+    int a = 4, b = 8;
+    int ans = gcd(a, b);
+    System.out.print("The GCD of the two numbers is "+ans);
+  }
 }
+
