@@ -1,0 +1,112 @@
+## Selection Sort
+   ``` The Selection sort algorithm has a time complexity of O(n^2) and a space complexity of O(1) since it does not require any additional memory space apart from a temporary variable used for swapping.```
+
+## code
+``` java
+     //{ Driver Code Starts
+import java.util.*;
+
+class GFG
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t>0)
+		{
+			int n = sc.nextInt();
+			int arr[] = new int[n];
+			for(int i=0;i<n;i++)
+			{
+				arr[i] = sc.nextInt();
+			}
+
+			Solution obj = new Solution();
+			obj.selectionSort(arr, n);
+
+			for(int i=0;i<n;i++)
+		    	System.out.print(arr[i]+" ");
+		    System.out.println();
+			t--;
+		}
+
+	}
+}
+
+// } Driver Code Ends
+
+
+class Solution
+{
+// 	int  select(int arr[], int i)
+// 	{
+//         // code here such that selectionSort() sorts arr[]
+// 	}
+
+	void selectionSort(int arr[], int n)
+	{
+	    //code here
+	    for(int i=0;i<n-1;i++){
+	        int min_index=i;
+	        for(int j=i+1;j<n;j++ ){
+	            if(arr[j]<arr[min_index])
+	                min_index=j;
+	        }
+	        int temp=arr[i];
+	        arr[i]=arr[min_index];
+	        arr[min_index]=temp;
+	    }
+	}
+}
+```
+
+## Geeks For Geeks reference
+
+```java
+// Java program for implementation of Selection Sort
+import java.io.*;
+public class SelectionSort
+{
+    void sort(int arr[])
+    {
+        int n = arr.length;
+
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < n-1; i++)
+        {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
+
+            // Swap the found minimum element with the first
+            // element
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    // Prints the array
+    void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(arr[i]+" ");
+        System.out.println();
+    }
+
+    // Driver code to test above
+    public static void main(String args[])
+    {
+        SelectionSort ob = new SelectionSort();
+        int arr[] = {64,25,12,22,11};
+        ob.sort(arr);
+        System.out.println("Sorted array");
+        ob.printArray(arr);
+    }
+}
+/* This code is contributed by Rajat Mishra*/
+
+```
